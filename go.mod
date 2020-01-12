@@ -4,6 +4,8 @@ go 1.12
 
 require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/fubarhouse/pygmy-go v0.0.0-20191217045747-74419bb4e21d
+	github.com/helloyi/go-sshclient v0.0.0-20190617151846-7e5120a78b77
 	github.com/integralist/go-findroot v0.0.0-20160518114804-ac90681525dc
 	github.com/logrusorgru/aurora v0.0.0-20191017060258-dc85c304c434
 	github.com/machinebox/graphql v0.2.2
@@ -21,3 +23,4 @@ require (
 // use shreddedbacon fork which has better table formatting for kubectl style tables
 // https://github.com/olekukonko/tablewriter/pull/144
 // replace github.com/olekukonko/tablewriter => github.com/shreddedbacon/tablewriter v0.0.2-0.20191104214435-fac6022f4869
+// replace github.com/fubarhouse/pygmy-go => ../../shreddedbacon/pygmy-go
