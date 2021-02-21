@@ -272,3 +272,44 @@ func (c *Client) DeployEnvironmentBranch(ctx context.Context,
 	}
 	return c.client.Run(ctx, req, &out)
 }
+
+// UpdateProjectMetadata updates a projects metadata.
+func (c *Client) UpdateProjectMetadata(
+	ctx context.Context, id int, key string, value string, projects *schema.ProjectMetadata) error {
+
+	req, err := c.newVersionedRequest("_lgraphql/updateProjectMetadata.graphql",
+		map[string]interface{}{
+			"id":    id,
+			"key":   key,
+			"value": value,
+		})
+	if err != nil {
+		return err
+	}
+
+	return c.client.Run(ctx, req, &struct {
+		Response *schema.ProjectMetadata `json:"updateProjectMetadata"`
+	}{
+		Response: projects,
+	})
+}
+
+// RemoveProjectMetadataByKey removes metadata from a project for given key.
+func (c *Client) RemoveProjectMetadataByKey(
+	ctx context.Context, id int, key string, projects *schema.ProjectMetadata) error {
+
+	req, err := c.newVersionedRequest("_lgraphql/removeProjectMetadataByKey.graphql",
+		map[string]interface{}{
+			"id":  id,
+			"key": key,
+		})
+	if err != nil {
+		return err
+	}
+
+	return c.client.Run(ctx, req, &struct {
+		Response *schema.ProjectMetadata `json:"removeProjectMetadataByKey"`
+	}{
+		Response: projects,
+	})
+}

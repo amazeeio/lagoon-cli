@@ -1,14 +1,18 @@
 package cmd
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"os"
 
+	"github.com/amazeeio/lagoon-cli/internal/lagoon"
+	"github.com/amazeeio/lagoon-cli/internal/lagoon/client"
 	"github.com/amazeeio/lagoon-cli/pkg/api"
 	"github.com/amazeeio/lagoon-cli/pkg/output"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
+	"github.com/spf13/viper"
 )
 
 var projectPatch api.ProjectPatch
@@ -111,12 +115,192 @@ var updateProjectCmd = &cobra.Command{
 			},
 		}
 		output.RenderResult(resultData, outputOptions)
+	},
+}
 
+var listProjectByMetadata = &cobra.Command{
+	Use:     "projects-by-metadata",
+	Aliases: []string{"pm", "projectmeta"},
+	Short:   "List projects by a given metadata key or key:value",
+	PreRunE: func(_ *cobra.Command, _ []string) error {
+		return validateTokenE(cmdLagoon)
+	},
+	RunE: func(cmd *cobra.Command, args []string) error {
+		debug, err := cmd.Flags().GetBool("debug")
+		if err != nil {
+			return err
+		}
+		showMetadata, err := cmd.Flags().GetBool("show-metadata")
+		if err != nil {
+			return err
+		}
+		key, err := cmd.Flags().GetString("key")
+		if err != nil {
+			return err
+		}
+		value, err := cmd.Flags().GetString("value")
+		if err != nil {
+			return err
+		}
+		if key == "" {
+			return fmt.Errorf("Missing arguments: key is not defined")
+		}
+		current := viper.GetString("current")
+		lc := client.New(
+			viper.GetString("lagoons."+current+".graphql"),
+			viper.GetString("lagoons."+current+".token"),
+			viper.GetString("lagoons."+current+".version"),
+			lagoonCLIVersion,
+			debug)
+		projects, err := lagoon.GetProjectsByMetadata(context.TODO(), key, value, lc)
+		if err != nil {
+			return err
+		}
+		if len(*projects) == 0 {
+			if value != "" {
+				return fmt.Errorf(fmt.Sprintf("No projects found with metadata key %s and value %s", key, value))
+			}
+			return fmt.Errorf(fmt.Sprintf("No projects found with metadata key %s", key))
+		}
+		data := []output.Data{}
+		for _, project := range *projects {
+			projectData := []string{
+				returnNonEmptyString(fmt.Sprintf("%v", project.ID)),
+				returnNonEmptyString(fmt.Sprintf("%v", project.Name)),
+			}
+			if showMetadata {
+				projectData = append(projectData, returnNonEmptyString(fmt.Sprintf("%v", project.Metadata)))
+			}
+			data = append(data, projectData)
+		}
+		header := []string{
+			"ID",
+			"Name",
+		}
+		if showMetadata {
+			header = append(header, "Metadata")
+		}
+		output.RenderOutput(output.Table{
+			Header: header,
+			Data:   data,
+		}, outputOptions)
+		return nil
+	},
+}
+
+var updateProjectMetadata = &cobra.Command{
+	Use:     "project-metadata",
+	Aliases: []string{"pm", "meta", "projectmeta"},
+	Short:   "Update a projects metadata with a given key or key:value",
+	PreRunE: func(_ *cobra.Command, _ []string) error {
+		return validateTokenE(cmdLagoon)
+	},
+	RunE: func(cmd *cobra.Command, args []string) error {
+		debug, err := cmd.Flags().GetBool("debug")
+		if err != nil {
+			return err
+		}
+		key, err := cmd.Flags().GetString("key")
+		if err != nil {
+			return err
+		}
+		value, err := cmd.Flags().GetString("value")
+		if err != nil {
+			return err
+		}
+		if key == "" || cmdProjectName == "" {
+			return fmt.Errorf("Missing arguments: Project name or key is not defined")
+		}
+		if yesNo(fmt.Sprintf("You are attempting to update key '%s' for project '%s' metadata, are you sure?", key, cmdProjectName)) {
+			current := viper.GetString("current")
+			lc := client.New(
+				viper.GetString("lagoons."+current+".graphql"),
+				viper.GetString("lagoons."+current+".token"),
+				viper.GetString("lagoons."+current+".version"),
+				lagoonCLIVersion,
+				debug)
+			project, err := lagoon.GetMinimalProjectByName(context.TODO(), cmdProjectName, lc)
+			if err != nil {
+				return err
+			}
+			projectResult, err := lagoon.UpdateProjectMetadata(context.TODO(), int(project.ID), key, value, lc)
+			if err != nil {
+				return err
+			}
+			data := []output.Data{}
+			data = append(data, []string{
+				returnNonEmptyString(fmt.Sprintf("%v", projectResult.ID)),
+				returnNonEmptyString(fmt.Sprintf("%v", projectResult.Name)),
+				returnNonEmptyString(fmt.Sprintf("%v", projectResult.Metadata)),
+			})
+			output.RenderOutput(output.Table{
+				Header: []string{
+					"ID",
+					"Name",
+					"Metadata",
+				},
+				Data: data,
+			}, outputOptions)
+		}
+		return nil
+	},
+}
+
+var deleteProjectMetadataByKey = &cobra.Command{
+	Use:     "project-metadata",
+	Aliases: []string{"pm", "meta", "projectmeta"},
+	Short:   "Delete a key from a projects metadata",
+	PreRunE: func(_ *cobra.Command, _ []string) error {
+		return validateTokenE(cmdLagoon)
+	},
+	RunE: func(cmd *cobra.Command, args []string) error {
+		debug, err := cmd.Flags().GetBool("debug")
+		if err != nil {
+			return err
+		}
+		key, err := cmd.Flags().GetString("key")
+		if err != nil {
+			return err
+		}
+		if key == "" || cmdProjectName == "" {
+			return fmt.Errorf("Missing arguments: Project name or key is not defined")
+		}
+		if yesNo(fmt.Sprintf("You are attempting to delete key '%s' from project '%s' metadata, are you sure?", key, cmdProjectName)) {
+			current := viper.GetString("current")
+			lc := client.New(
+				viper.GetString("lagoons."+current+".graphql"),
+				viper.GetString("lagoons."+current+".token"),
+				viper.GetString("lagoons."+current+".version"),
+				lagoonCLIVersion,
+				debug)
+			project, err := lagoon.GetMinimalProjectByName(context.TODO(), cmdProjectName, lc)
+			if err != nil {
+				return err
+			}
+			projectResult, err := lagoon.RemoveProjectMetadataByKey(context.TODO(), int(project.ID), key, lc)
+			if err != nil {
+				return err
+			}
+			data := []output.Data{}
+			data = append(data, []string{
+				returnNonEmptyString(fmt.Sprintf("%v", projectResult.ID)),
+				returnNonEmptyString(fmt.Sprintf("%v", projectResult.Name)),
+				returnNonEmptyString(fmt.Sprintf("%v", projectResult.Metadata)),
+			})
+			output.RenderOutput(output.Table{
+				Header: []string{
+					"ID",
+					"Name",
+					"Metadata",
+				},
+				Data: data,
+			}, outputOptions)
+		}
+		return nil
 	},
 }
 
 func init() {
-
 	updateProjectCmd.Flags().StringVarP(&jsonPatch, "json", "j", "", "JSON string to patch")
 
 	// @TODO this seems needlessly busy, maybe see if cobra supports grouping flags and applying them to commands easier?
@@ -159,4 +343,15 @@ func init() {
 	addProjectCmd.Flags().IntVarP(&projectDevelopmentEnvironmentsLimit, "developmentEnvironmentsLimit", "L", 0, "How many environments can be deployed at one time")
 	addProjectCmd.Flags().IntVarP(&projectOpenshift, "openshift", "S", 0, "Reference to OpenShift Object this Project should be deployed to")
 
+	listCmd.AddCommand(listProjectByMetadata)
+	listProjectByMetadata.Flags().StringP("key", "K", "", "The key name of the metadata value you are querying on")
+	listProjectByMetadata.Flags().StringP("value", "V", "", "The value for the key you are querying on")
+	listProjectByMetadata.Flags().Bool("show-metadata", false, "Show the metadata for each project as another field (this could be a lot of data)")
+
+	updateCmd.AddCommand(updateProjectMetadata)
+	updateProjectMetadata.Flags().StringP("key", "K", "", "The key name of the metadata value you are querying on")
+	updateProjectMetadata.Flags().StringP("value", "V", "", "The value for the key you are querying on")
+
+	deleteCmd.AddCommand(deleteProjectMetadataByKey)
+	deleteProjectMetadataByKey.Flags().StringP("key", "K", "", "The key name of the metadata value you are querying on")
 }

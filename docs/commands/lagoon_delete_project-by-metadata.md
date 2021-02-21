@@ -1,15 +1,20 @@
-## lagoon update
+## lagoon delete project-by-metadata
 
-Update a resource
+Delete a key from a projects metadata
 
 ### Synopsis
 
-Update a resource
+Delete a key from a projects metadata
+
+```
+lagoon delete project-by-metadata [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for update
+  -h, --help         help for project-by-metadata
+      --key string   The key name of the metadata value you are querying on
 ```
 
 ### Options inherited from parent commands
@@ -31,10 +36,5 @@ Update a resource
 
 ### SEE ALSO
 
-* [lagoon](lagoon.md)	 - Command line integration for Lagoon
-* [lagoon update project](lagoon_update_project.md)	 - Update a project
-* [lagoon update project-metadata](lagoon_update_project-metadata.md)	 - Update a projects metadata with a given key or key:value
-* [lagoon update rocketchat](lagoon_update_rocketchat.md)	 - Update an existing rocketchat notification
-* [lagoon update slack](lagoon_update_slack.md)	 - Update an existing slack notification
-* [lagoon update user](lagoon_update_user.md)	 - Update a user in lagoon
+* [lagoon delete](lagoon_delete.md)	 - Delete a project, or delete notifications and variables from projects or environments
 

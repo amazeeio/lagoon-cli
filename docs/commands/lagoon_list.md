@@ -38,6 +38,7 @@ List projects, deployments, variables or notifications
 * [lagoon list group-projects](lagoon_list_group-projects.md)	 - List projects in a group (alias: gp)
 * [lagoon list groups](lagoon_list_groups.md)	 - List groups you have access to (alias: g)
 * [lagoon list projects](lagoon_list_projects.md)	 - List all projects you have access to (alias: p)
+* [lagoon list projects-by-metadata](lagoon_list_projects-by-metadata.md)	 - List projects by a given metadata key or key:value
 * [lagoon list rocketchat](lagoon_list_rocketchat.md)	 - List Rocketchat details about a project (alias: r)
 * [lagoon list slack](lagoon_list_slack.md)	 - List Slack details about a project (alias: s)
 * [lagoon list tasks](lagoon_list_tasks.md)	 - List tasks for an environment (alias: t)

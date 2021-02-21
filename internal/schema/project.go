@@ -95,3 +95,9 @@ type ProjectBillingGroupInput struct {
 	Group   GroupInput   `json:"group"`
 	Project ProjectInput `json:"project"`
 }
+
+// ProjectMetadata .
+type ProjectMetadata struct {
+	Project
+	Metadata string `json:"metadata"`
+}

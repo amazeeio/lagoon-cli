@@ -1,0 +1,16 @@
+{{ if apiVerGreaterThanOrEqual . "1.6.0" }}
+mutation (
+    $id: Int!
+    $key: String!){
+    removeProjectMetadataByKey(
+        input:{
+            id: $id
+            key: $key
+        }
+    ){
+        id
+        name
+        metadata
+    }
+}
+{{ end }}
