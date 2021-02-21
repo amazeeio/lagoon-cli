@@ -6,245 +6,36 @@ package mock
 
 import (
 	context "context"
+	reflect "reflect"
+
 	schema "github.com/amazeeio/lagoon-cli/internal/schema"
 	gomock "github.com/golang/mock/gomock"
-	reflect "reflect"
 )
 
-// MockImporter is a mock of Importer interface
+// MockImporter is a mock of Importer interface.
 type MockImporter struct {
 	ctrl     *gomock.Controller
 	recorder *MockImporterMockRecorder
 }
 
-// MockImporterMockRecorder is the mock recorder for MockImporter
+// MockImporterMockRecorder is the mock recorder for MockImporter.
 type MockImporterMockRecorder struct {
 	mock *MockImporter
 }
 
-// NewMockImporter creates a new mock instance
+// NewMockImporter creates a new mock instance.
 func NewMockImporter(ctrl *gomock.Controller) *MockImporter {
 	mock := &MockImporter{ctrl: ctrl}
 	mock.recorder = &MockImporterMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockImporter) EXPECT() *MockImporterMockRecorder {
 	return m.recorder
 }
 
-// AddGroup mocks base method
-func (m *MockImporter) AddGroup(arg0 context.Context, arg1 *schema.AddGroupInput, arg2 *schema.Group) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddGroup", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddGroup indicates an expected call of AddGroup
-func (mr *MockImporterMockRecorder) AddGroup(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddGroup", reflect.TypeOf((*MockImporter)(nil).AddGroup), arg0, arg1, arg2)
-}
-
-// AddUser mocks base method
-func (m *MockImporter) AddUser(arg0 context.Context, arg1 *schema.AddUserInput, arg2 *schema.User) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddUser", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddUser indicates an expected call of AddUser
-func (mr *MockImporterMockRecorder) AddUser(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddUser", reflect.TypeOf((*MockImporter)(nil).AddUser), arg0, arg1, arg2)
-}
-
-// AddSSHKey mocks base method
-func (m *MockImporter) AddSSHKey(arg0 context.Context, arg1 *schema.AddSSHKeyInput, arg2 *schema.SSHKey) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddSSHKey", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddSSHKey indicates an expected call of AddSSHKey
-func (mr *MockImporterMockRecorder) AddSSHKey(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddSSHKey", reflect.TypeOf((*MockImporter)(nil).AddSSHKey), arg0, arg1, arg2)
-}
-
-// AddUserToGroup mocks base method
-func (m *MockImporter) AddUserToGroup(arg0 context.Context, arg1 *schema.UserGroupRoleInput, arg2 *schema.Group) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddUserToGroup", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddUserToGroup indicates an expected call of AddUserToGroup
-func (mr *MockImporterMockRecorder) AddUserToGroup(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddUserToGroup", reflect.TypeOf((*MockImporter)(nil).AddUserToGroup), arg0, arg1, arg2)
-}
-
-// AddNotificationSlack mocks base method
-func (m *MockImporter) AddNotificationSlack(arg0 context.Context, arg1 *schema.AddNotificationSlackInput, arg2 *schema.NotificationSlack) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddNotificationSlack", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddNotificationSlack indicates an expected call of AddNotificationSlack
-func (mr *MockImporterMockRecorder) AddNotificationSlack(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationSlack", reflect.TypeOf((*MockImporter)(nil).AddNotificationSlack), arg0, arg1, arg2)
-}
-
-// AddNotificationRocketChat mocks base method
-func (m *MockImporter) AddNotificationRocketChat(arg0 context.Context, arg1 *schema.AddNotificationRocketChatInput, arg2 *schema.NotificationRocketChat) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddNotificationRocketChat", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddNotificationRocketChat indicates an expected call of AddNotificationRocketChat
-func (mr *MockImporterMockRecorder) AddNotificationRocketChat(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationRocketChat", reflect.TypeOf((*MockImporter)(nil).AddNotificationRocketChat), arg0, arg1, arg2)
-}
-
-// AddNotificationEmail mocks base method
-func (m *MockImporter) AddNotificationEmail(arg0 context.Context, arg1 *schema.AddNotificationEmailInput, arg2 *schema.NotificationEmail) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddNotificationEmail", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddNotificationEmail indicates an expected call of AddNotificationEmail
-func (mr *MockImporterMockRecorder) AddNotificationEmail(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationEmail", reflect.TypeOf((*MockImporter)(nil).AddNotificationEmail), arg0, arg1, arg2)
-}
-
-// AddNotificationMicrosoftTeams mocks base method
-func (m *MockImporter) AddNotificationMicrosoftTeams(arg0 context.Context, arg1 *schema.AddNotificationMicrosoftTeamsInput, arg2 *schema.NotificationMicrosoftTeams) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddNotificationMicrosoftTeams", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddNotificationMicrosoftTeams indicates an expected call of AddNotificationMicrosoftTeams
-func (mr *MockImporterMockRecorder) AddNotificationMicrosoftTeams(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationMicrosoftTeams", reflect.TypeOf((*MockImporter)(nil).AddNotificationMicrosoftTeams), arg0, arg1, arg2)
-}
-
-// AddProject mocks base method
-func (m *MockImporter) AddProject(arg0 context.Context, arg1 *schema.AddProjectInput, arg2 *schema.Project) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddProject", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddProject indicates an expected call of AddProject
-func (mr *MockImporterMockRecorder) AddProject(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddProject", reflect.TypeOf((*MockImporter)(nil).AddProject), arg0, arg1, arg2)
-}
-
-// AddEnvVariable mocks base method
-func (m *MockImporter) AddEnvVariable(arg0 context.Context, arg1 *schema.EnvVariableInput, arg2 *schema.EnvKeyValue) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddEnvVariable", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddEnvVariable indicates an expected call of AddEnvVariable
-func (mr *MockImporterMockRecorder) AddEnvVariable(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddEnvVariable", reflect.TypeOf((*MockImporter)(nil).AddEnvVariable), arg0, arg1, arg2)
-}
-
-// ProjectByName mocks base method
-func (m *MockImporter) ProjectByName(arg0 context.Context, arg1 string, arg2 *schema.Project) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "ProjectByName", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// ProjectByName indicates an expected call of ProjectByName
-func (mr *MockImporterMockRecorder) ProjectByName(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ProjectByName", reflect.TypeOf((*MockImporter)(nil).ProjectByName), arg0, arg1, arg2)
-}
-
-// AddOrUpdateEnvironment mocks base method
-func (m *MockImporter) AddOrUpdateEnvironment(arg0 context.Context, arg1 *schema.AddEnvironmentInput, arg2 *schema.Environment) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddOrUpdateEnvironment", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddOrUpdateEnvironment indicates an expected call of AddOrUpdateEnvironment
-func (mr *MockImporterMockRecorder) AddOrUpdateEnvironment(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddOrUpdateEnvironment", reflect.TypeOf((*MockImporter)(nil).AddOrUpdateEnvironment), arg0, arg1, arg2)
-}
-
-// EnvironmentByName mocks base method
-func (m *MockImporter) EnvironmentByName(arg0 context.Context, arg1 string, arg2 uint, arg3 *schema.Environment) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "EnvironmentByName", arg0, arg1, arg2, arg3)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// EnvironmentByName indicates an expected call of EnvironmentByName
-func (mr *MockImporterMockRecorder) EnvironmentByName(arg0, arg1, arg2, arg3 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "EnvironmentByName", reflect.TypeOf((*MockImporter)(nil).EnvironmentByName), arg0, arg1, arg2, arg3)
-}
-
-// AddGroupsToProject mocks base method
-func (m *MockImporter) AddGroupsToProject(arg0 context.Context, arg1 *schema.ProjectGroupsInput, arg2 *schema.Project) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddGroupsToProject", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddGroupsToProject indicates an expected call of AddGroupsToProject
-func (mr *MockImporterMockRecorder) AddGroupsToProject(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddGroupsToProject", reflect.TypeOf((*MockImporter)(nil).AddGroupsToProject), arg0, arg1, arg2)
-}
-
-// AddNotificationToProject mocks base method
-func (m *MockImporter) AddNotificationToProject(arg0 context.Context, arg1 *schema.AddNotificationToProjectInput, arg2 *schema.Project) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AddNotificationToProject", arg0, arg1, arg2)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// AddNotificationToProject indicates an expected call of AddNotificationToProject
-func (mr *MockImporterMockRecorder) AddNotificationToProject(arg0, arg1, arg2 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationToProject", reflect.TypeOf((*MockImporter)(nil).AddNotificationToProject), arg0, arg1, arg2)
-}
-
-// AddBillingGroup mocks base method
+// AddBillingGroup mocks base method.
 func (m *MockImporter) AddBillingGroup(arg0 context.Context, arg1 *schema.AddBillingGroupInput, arg2 *schema.BillingGroup) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "AddBillingGroup", arg0, arg1, arg2)
@@ -252,13 +43,153 @@ func (m *MockImporter) AddBillingGroup(arg0 context.Context, arg1 *schema.AddBil
 	return ret0
 }
 
-// AddBillingGroup indicates an expected call of AddBillingGroup
+// AddBillingGroup indicates an expected call of AddBillingGroup.
 func (mr *MockImporterMockRecorder) AddBillingGroup(arg0, arg1, arg2 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddBillingGroup", reflect.TypeOf((*MockImporter)(nil).AddBillingGroup), arg0, arg1, arg2)
 }
 
-// AddProjectToBillingGroup mocks base method
+// AddEnvVariable mocks base method.
+func (m *MockImporter) AddEnvVariable(arg0 context.Context, arg1 *schema.EnvVariableInput, arg2 *schema.EnvKeyValue) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddEnvVariable", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddEnvVariable indicates an expected call of AddEnvVariable.
+func (mr *MockImporterMockRecorder) AddEnvVariable(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddEnvVariable", reflect.TypeOf((*MockImporter)(nil).AddEnvVariable), arg0, arg1, arg2)
+}
+
+// AddGroup mocks base method.
+func (m *MockImporter) AddGroup(arg0 context.Context, arg1 *schema.AddGroupInput, arg2 *schema.Group) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddGroup", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddGroup indicates an expected call of AddGroup.
+func (mr *MockImporterMockRecorder) AddGroup(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddGroup", reflect.TypeOf((*MockImporter)(nil).AddGroup), arg0, arg1, arg2)
+}
+
+// AddGroupsToProject mocks base method.
+func (m *MockImporter) AddGroupsToProject(arg0 context.Context, arg1 *schema.ProjectGroupsInput, arg2 *schema.Project) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddGroupsToProject", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddGroupsToProject indicates an expected call of AddGroupsToProject.
+func (mr *MockImporterMockRecorder) AddGroupsToProject(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddGroupsToProject", reflect.TypeOf((*MockImporter)(nil).AddGroupsToProject), arg0, arg1, arg2)
+}
+
+// AddNotificationEmail mocks base method.
+func (m *MockImporter) AddNotificationEmail(arg0 context.Context, arg1 *schema.AddNotificationEmailInput, arg2 *schema.NotificationEmail) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddNotificationEmail", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddNotificationEmail indicates an expected call of AddNotificationEmail.
+func (mr *MockImporterMockRecorder) AddNotificationEmail(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationEmail", reflect.TypeOf((*MockImporter)(nil).AddNotificationEmail), arg0, arg1, arg2)
+}
+
+// AddNotificationMicrosoftTeams mocks base method.
+func (m *MockImporter) AddNotificationMicrosoftTeams(arg0 context.Context, arg1 *schema.AddNotificationMicrosoftTeamsInput, arg2 *schema.NotificationMicrosoftTeams) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddNotificationMicrosoftTeams", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddNotificationMicrosoftTeams indicates an expected call of AddNotificationMicrosoftTeams.
+func (mr *MockImporterMockRecorder) AddNotificationMicrosoftTeams(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationMicrosoftTeams", reflect.TypeOf((*MockImporter)(nil).AddNotificationMicrosoftTeams), arg0, arg1, arg2)
+}
+
+// AddNotificationRocketChat mocks base method.
+func (m *MockImporter) AddNotificationRocketChat(arg0 context.Context, arg1 *schema.AddNotificationRocketChatInput, arg2 *schema.NotificationRocketChat) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddNotificationRocketChat", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddNotificationRocketChat indicates an expected call of AddNotificationRocketChat.
+func (mr *MockImporterMockRecorder) AddNotificationRocketChat(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationRocketChat", reflect.TypeOf((*MockImporter)(nil).AddNotificationRocketChat), arg0, arg1, arg2)
+}
+
+// AddNotificationSlack mocks base method.
+func (m *MockImporter) AddNotificationSlack(arg0 context.Context, arg1 *schema.AddNotificationSlackInput, arg2 *schema.NotificationSlack) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddNotificationSlack", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddNotificationSlack indicates an expected call of AddNotificationSlack.
+func (mr *MockImporterMockRecorder) AddNotificationSlack(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationSlack", reflect.TypeOf((*MockImporter)(nil).AddNotificationSlack), arg0, arg1, arg2)
+}
+
+// AddNotificationToProject mocks base method.
+func (m *MockImporter) AddNotificationToProject(arg0 context.Context, arg1 *schema.AddNotificationToProjectInput, arg2 *schema.Project) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddNotificationToProject", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddNotificationToProject indicates an expected call of AddNotificationToProject.
+func (mr *MockImporterMockRecorder) AddNotificationToProject(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddNotificationToProject", reflect.TypeOf((*MockImporter)(nil).AddNotificationToProject), arg0, arg1, arg2)
+}
+
+// AddOrUpdateEnvironment mocks base method.
+func (m *MockImporter) AddOrUpdateEnvironment(arg0 context.Context, arg1 *schema.AddEnvironmentInput, arg2 *schema.Environment) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddOrUpdateEnvironment", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddOrUpdateEnvironment indicates an expected call of AddOrUpdateEnvironment.
+func (mr *MockImporterMockRecorder) AddOrUpdateEnvironment(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddOrUpdateEnvironment", reflect.TypeOf((*MockImporter)(nil).AddOrUpdateEnvironment), arg0, arg1, arg2)
+}
+
+// AddProject mocks base method.
+func (m *MockImporter) AddProject(arg0 context.Context, arg1 *schema.AddProjectInput, arg2 *schema.Project) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddProject", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddProject indicates an expected call of AddProject.
+func (mr *MockImporterMockRecorder) AddProject(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddProject", reflect.TypeOf((*MockImporter)(nil).AddProject), arg0, arg1, arg2)
+}
+
+// AddProjectToBillingGroup mocks base method.
 func (m *MockImporter) AddProjectToBillingGroup(arg0 context.Context, arg1 *schema.ProjectBillingGroupInput, arg2 *schema.Project) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "AddProjectToBillingGroup", arg0, arg1, arg2)
@@ -266,8 +197,92 @@ func (m *MockImporter) AddProjectToBillingGroup(arg0 context.Context, arg1 *sche
 	return ret0
 }
 
-// AddProjectToBillingGroup indicates an expected call of AddProjectToBillingGroup
+// AddProjectToBillingGroup indicates an expected call of AddProjectToBillingGroup.
 func (mr *MockImporterMockRecorder) AddProjectToBillingGroup(arg0, arg1, arg2 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddProjectToBillingGroup", reflect.TypeOf((*MockImporter)(nil).AddProjectToBillingGroup), arg0, arg1, arg2)
+}
+
+// AddSSHKey mocks base method.
+func (m *MockImporter) AddSSHKey(arg0 context.Context, arg1 *schema.AddSSHKeyInput, arg2 *schema.SSHKey) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddSSHKey", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddSSHKey indicates an expected call of AddSSHKey.
+func (mr *MockImporterMockRecorder) AddSSHKey(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddSSHKey", reflect.TypeOf((*MockImporter)(nil).AddSSHKey), arg0, arg1, arg2)
+}
+
+// AddUser mocks base method.
+func (m *MockImporter) AddUser(arg0 context.Context, arg1 *schema.AddUserInput, arg2 *schema.User) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddUser", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddUser indicates an expected call of AddUser.
+func (mr *MockImporterMockRecorder) AddUser(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddUser", reflect.TypeOf((*MockImporter)(nil).AddUser), arg0, arg1, arg2)
+}
+
+// AddUserToGroup mocks base method.
+func (m *MockImporter) AddUserToGroup(arg0 context.Context, arg1 *schema.UserGroupRoleInput, arg2 *schema.Group) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "AddUserToGroup", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// AddUserToGroup indicates an expected call of AddUserToGroup.
+func (mr *MockImporterMockRecorder) AddUserToGroup(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddUserToGroup", reflect.TypeOf((*MockImporter)(nil).AddUserToGroup), arg0, arg1, arg2)
+}
+
+// EnvironmentByName mocks base method.
+func (m *MockImporter) EnvironmentByName(arg0 context.Context, arg1 string, arg2 uint, arg3 *schema.Environment) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "EnvironmentByName", arg0, arg1, arg2, arg3)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// EnvironmentByName indicates an expected call of EnvironmentByName.
+func (mr *MockImporterMockRecorder) EnvironmentByName(arg0, arg1, arg2, arg3 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "EnvironmentByName", reflect.TypeOf((*MockImporter)(nil).EnvironmentByName), arg0, arg1, arg2, arg3)
+}
+
+// ProjectByName mocks base method.
+func (m *MockImporter) ProjectByName(arg0 context.Context, arg1 string, arg2 *schema.Project) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "ProjectByName", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// ProjectByName indicates an expected call of ProjectByName.
+func (mr *MockImporterMockRecorder) ProjectByName(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ProjectByName", reflect.TypeOf((*MockImporter)(nil).ProjectByName), arg0, arg1, arg2)
+}
+
+// UpdateEnvironment mocks base method.
+func (m *MockImporter) UpdateEnvironment(arg0 context.Context, arg1 *schema.UpdateEnvironmentInput, arg2 *schema.Environment) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UpdateEnvironment", arg0, arg1, arg2)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// UpdateEnvironment indicates an expected call of UpdateEnvironment.
+func (mr *MockImporterMockRecorder) UpdateEnvironment(arg0, arg1, arg2 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UpdateEnvironment", reflect.TypeOf((*MockImporter)(nil).UpdateEnvironment), arg0, arg1, arg2)
 }

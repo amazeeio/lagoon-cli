@@ -1,0 +1,11 @@
+mutation (
+  $id: Int!,
+  $patch: UpdateEnvironmentPatchInput!) {
+    updateEnvironment(input: {
+      id: $id,
+      patch: $patch,
+    }) {
+      id
+      name
+    }
+  }

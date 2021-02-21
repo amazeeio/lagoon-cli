@@ -88,6 +88,7 @@ query (
           environmentType
           openshiftProjectName
           autoIdle
+          created
           envVariables {
             name
             scope

@@ -6,35 +6,36 @@ package mock
 
 import (
 	context "context"
+	reflect "reflect"
+
 	schema "github.com/amazeeio/lagoon-cli/internal/schema"
 	gomock "github.com/golang/mock/gomock"
-	reflect "reflect"
 )
 
-// MockMe is a mock of Me interface
+// MockMe is a mock of Me interface.
 type MockMe struct {
 	ctrl     *gomock.Controller
 	recorder *MockMeMockRecorder
 }
 
-// MockMeMockRecorder is the mock recorder for MockMe
+// MockMeMockRecorder is the mock recorder for MockMe.
 type MockMeMockRecorder struct {
 	mock *MockMe
 }
 
-// NewMockMe creates a new mock instance
+// NewMockMe creates a new mock instance.
 func NewMockMe(ctrl *gomock.Controller) *MockMe {
 	mock := &MockMe{ctrl: ctrl}
 	mock.recorder = &MockMeMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockMe) EXPECT() *MockMeMockRecorder {
 	return m.recorder
 }
 
-// Me mocks base method
+// Me mocks base method.
 func (m *MockMe) Me(ctx context.Context, user *schema.User) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Me", ctx, user)
@@ -42,7 +43,7 @@ func (m *MockMe) Me(ctx context.Context, user *schema.User) error {
 	return ret0
 }
 
-// Me indicates an expected call of Me
+// Me indicates an expected call of Me.
 func (mr *MockMeMockRecorder) Me(ctx, user interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Me", reflect.TypeOf((*MockMe)(nil).Me), ctx, user)

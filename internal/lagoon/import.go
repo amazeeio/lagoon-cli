@@ -43,6 +43,7 @@ type Importer interface {
 	ProjectByName(context.Context, string, *schema.Project) error
 	AddOrUpdateEnvironment(
 		context.Context, *schema.AddEnvironmentInput, *schema.Environment) error
+	UpdateEnvironment(context.Context, *schema.UpdateEnvironmentInput, *schema.Environment) error
 	EnvironmentByName(context.Context, string, uint, *schema.Environment) error
 	AddGroupsToProject(
 		context.Context, *schema.ProjectGroupsInput, *schema.Project) error
@@ -227,6 +228,17 @@ func Import(ctx context.Context, i Importer, r io.Reader, keepGoing bool,
 				}
 				l.Printf("couldn't add Environment: %v", err)
 				continue // next environment
+			}
+			// Set the correct created date
+			envUpdateInput := schema.UpdateEnvironmentInput{
+				ID: newEnv.ID,
+				Patch: schema.UpdateEnvironmentPatch{
+					Created: env.Created,
+				},
+			}
+			err = i.UpdateEnvironment(ctx, &envUpdateInput, nil)
+			if err != nil {
+				return fmt.Errorf("couldn't update Environment: %w", err)
 			}
 			// add environment env-vars
 			for _, ev := range env.EnvVariables {

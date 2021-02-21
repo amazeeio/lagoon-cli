@@ -42,3 +42,21 @@ type EnvironmentInput struct {
 	Name    string       `json:"name,omitempty"`
 	Project ProjectInput `json:"project"`
 }
+
+// UpdateEnvironmentPatch is based on the input to updateEnvironment.
+type UpdateEnvironmentPatch struct {
+	ProjectID            uint           `json:"project,omitempty"`
+	DeployType           api.DeployType `json:"deployType,omitempty"`
+	DeployBaseRef        string         `json:"deployBaseRef,omitempty"`
+	DeployHeadRef        string         `json:"deployHeadRef,omitempty"`
+	DeployTitle          string         `json:"deployTitle,omitempty"`
+	EnvironmentType      api.EnvType    `json:"environmentType,omitempty"`
+	OpenshiftProjectName string         `json:"openshiftProjectName"`
+	Created              string         `json:"created,omitempty"`
+}
+
+// UpdateEnvironmentInput is based on the input to updateEnvironment.
+type UpdateEnvironmentInput struct {
+	ID    uint                   `json:"id,omitempty"`
+	Patch UpdateEnvironmentPatch `json:"patch"`
+}

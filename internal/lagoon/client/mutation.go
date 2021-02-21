@@ -177,6 +177,20 @@ func (c *Client) AddOrUpdateEnvironment(ctx context.Context,
 	}))
 }
 
+// UpdateEnvironment updates a Project Environment.
+func (c *Client) UpdateEnvironment(ctx context.Context,
+	in *schema.UpdateEnvironmentInput, out *schema.Environment) error {
+	req, err := c.newRequest("_lgraphql/updateEnvironment.graphql", in)
+	if err != nil {
+		return err
+	}
+	return wrapErr(c.client.Run(ctx, req, &struct {
+		Response *schema.Environment `json:"updateEnvironment"`
+	}{
+		Response: out,
+	}))
+}
+
 // AddGroupsToProject adds Groups to a Project.
 func (c *Client) AddGroupsToProject(ctx context.Context,
 	in *schema.ProjectGroupsInput, out *schema.Project) error {

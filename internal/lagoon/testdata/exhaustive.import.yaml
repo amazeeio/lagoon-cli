@@ -36,6 +36,7 @@ projects:
     value: "1"
   environments:
   - autoIdle: 1
+    created: "2021-01-18 22:25:55"
     deployBaseRef: ""
     deployType: ""
     envVariables:
@@ -46,12 +47,14 @@ projects:
     name: develop
     openshiftProjectName: bananas-develop
   - autoIdle: 1
+    created: "2021-01-18 22:25:55"
     deployBaseRef: ""
     deployType: ""
     environmentType: ""
     name: master
     openshiftProjectName: bananas-master
   - autoIdle: 1
+    created: "2021-01-18 22:25:55"
     deployBaseRef: ""
     deployType: ""
     environmentType: ""

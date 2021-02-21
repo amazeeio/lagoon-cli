@@ -30,6 +30,7 @@ type importCalls struct {
 	AddProjectInputs                    []schema.AddProjectInput
 	EnvVariableInputs                   []schema.EnvVariableInput
 	AddEnvironmentInputs                []schema.AddEnvironmentInput
+	UpdateEnvironmentInputs             []schema.UpdateEnvironmentInput
 	ProjectGroupsInputs                 []schema.ProjectGroupsInput
 	AddNotificationToProjectInputs      []schema.AddNotificationToProjectInput
 	AddBillingGroupInputs               []schema.AddBillingGroupInput
@@ -166,6 +167,26 @@ func TestImport(t *testing.T) {
 					ProjectID:            99, // NewProjectID
 				},
 			},
+			UpdateEnvironmentInputs: []schema.UpdateEnvironmentInput{
+				{
+					ID: 88,
+					Patch: schema.UpdateEnvironmentPatch{
+						Created: "2021-01-18 22:25:55",
+					},
+				},
+				{
+					ID: 88,
+					Patch: schema.UpdateEnvironmentPatch{
+						Created: "2021-01-18 22:25:55",
+					},
+				},
+				{
+					ID: 88,
+					Patch: schema.UpdateEnvironmentPatch{
+						Created: "2021-01-18 22:25:55",
+					},
+				},
+			},
 			ProjectGroupsInputs: []schema.ProjectGroupsInput{
 				{
 					Project: schema.ProjectInput{Name: "bananas"},
@@ -252,6 +273,10 @@ func TestImport(t *testing.T) {
 						// set the EnvironmentID as the env variables calls require it
 						e.ID = tc.expect.NewEnvironmentID
 					})
+			}
+			for i := range tc.expect.UpdateEnvironmentInputs {
+				importer.EXPECT().UpdateEnvironment(
+					ctx, &tc.expect.UpdateEnvironmentInputs[i], nil)
 			}
 			for i := range tc.expect.ProjectGroupsInputs {
 				importer.EXPECT().AddGroupsToProject(
