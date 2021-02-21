@@ -96,3 +96,21 @@ func (c *Client) LagoonSchema(
 		Response: lagoonSchema,
 	})
 }
+
+// AllOpenshifts queries the Lagoon API for allopenshifts, and
+// unmarshals the response.
+func (c *Client) AllOpenshifts(
+	ctx context.Context, allOpenshifts *[]schema.Openshift) error {
+
+	req, err := c.newVersionedRequest("_lgraphql/allOpenshifts.graphql",
+		nil)
+	if err != nil {
+		return err
+	}
+
+	return c.client.Run(ctx, req, &struct {
+		Response *[]schema.Openshift `json:"allOpenshifts"`
+	}{
+		Response: allOpenshifts,
+	})
+}

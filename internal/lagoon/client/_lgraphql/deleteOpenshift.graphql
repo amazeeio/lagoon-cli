@@ -1,0 +1,3 @@
+mutation($name: String!) {
+  deleteOpenshift(input: { name: $name })
+}

@@ -1,0 +1,16 @@
+mutation($id: Int!, $patch: UpdateOpenshiftPatchInput!) {
+  updateOpenshift(input: { id: $id, patch: $patch }) {
+    id
+    name
+    consoleUrl
+    routerPattern
+    projectUser
+    sshHost
+    sshPort
+    created
+    token
+    {{- if apiVerGreaterThanOrEqual . "1.7.0" }}
+    monitoringConfig
+    {{- end }}
+  }
+}

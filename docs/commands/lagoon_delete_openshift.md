@@ -1,15 +1,20 @@
-## lagoon update
+## lagoon delete openshift
 
-Update a resource
+Delete an openshift (platform admin user permissions only)
 
 ### Synopsis
 
-Update a resource
+Delete an openshift (platform admin user permissions only)
+
+```
+lagoon delete openshift [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for update
+  -h, --help          help for openshift
+  -N, --name string   Name of the Openshift in Lagoon
 ```
 
 ### Options inherited from parent commands
@@ -31,10 +36,5 @@ Update a resource
 
 ### SEE ALSO
 
-* [lagoon](lagoon.md)	 - Command line integration for Lagoon
-* [lagoon update openshift](lagoon_update_openshift.md)	 - Update an openshift (platform admin user permissions only)
-* [lagoon update project](lagoon_update_project.md)	 - Update a project
-* [lagoon update rocketchat](lagoon_update_rocketchat.md)	 - Update an existing rocketchat notification
-* [lagoon update slack](lagoon_update_slack.md)	 - Update an existing slack notification
-* [lagoon update user](lagoon_update_user.md)	 - Update a user in lagoon
+* [lagoon delete](lagoon_delete.md)	 - Delete a project, or delete notifications and variables from projects or environments
 

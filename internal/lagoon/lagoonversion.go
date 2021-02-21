@@ -84,6 +84,16 @@ func determineLagoonVersion(lagoonVersion string, lagoonSchema schema.LagoonSche
 				return lagoonVersion, err
 			}
 		}
+		if schemaType.Name == "Openshift" {
+			for _, field := range schemaType.Fields {
+				if field.Name == "monitoringConfig" {
+					lagoonVersion, err = greaterThanOrEqualVersion(lagoonVersion, "v1.7.0")
+					if err != nil {
+						return lagoonVersion, err
+					}
+				}
+			}
+		}
 	}
 	return lagoonVersion, nil
 }

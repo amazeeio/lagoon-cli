@@ -1,15 +1,22 @@
-## lagoon update
+## lagoon list openshifts
 
-Update a resource
+List all Openshifts Lagoon knows about (platform admin user permissions only)
 
 ### Synopsis
 
-Update a resource
+List all Openshifts Lagoon knows about (platform admin user permissions only)
+Only platform admin role can list openshifts.
+NOTE: only openshifts that are used by projects can be listed
+
+```
+lagoon list openshifts [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for update
+      --fields strings   Select which fields to display when listing Openshifts. Valid options (others are ignored): consoleurl,created,id,monitoringconfig,name,projectuser,routerpattern,sshhost,sshport,token (default [id,name])
+  -h, --help             help for openshifts
 ```
 
 ### Options inherited from parent commands
@@ -31,10 +38,5 @@ Update a resource
 
 ### SEE ALSO
 
-* [lagoon](lagoon.md)	 - Command line integration for Lagoon
-* [lagoon update openshift](lagoon_update_openshift.md)	 - Update an openshift (platform admin user permissions only)
-* [lagoon update project](lagoon_update_project.md)	 - Update a project
-* [lagoon update rocketchat](lagoon_update_rocketchat.md)	 - Update an existing rocketchat notification
-* [lagoon update slack](lagoon_update_slack.md)	 - Update an existing slack notification
-* [lagoon update user](lagoon_update_user.md)	 - Update a user in lagoon
+* [lagoon list](lagoon_list.md)	 - List projects, deployments, variables or notifications
 

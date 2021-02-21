@@ -1,15 +1,28 @@
-## lagoon update
+## lagoon update openshift
 
-Update a resource
+Update an openshift (platform admin user permissions only)
 
 ### Synopsis
 
-Update a resource
+Update an openshift (platform admin user permissions only)
+
+```
+lagoon update openshift [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for update
+  -C, --consoleUrl string         ConsoleURL of the openshift
+  -h, --help                      help for openshift
+  -I, --id int                    ID to assign the Openshift in Lagoon
+  -m, --monitoringConfig string   Configuration for monitoring (JSON)
+  -N, --name string               Name of the Openshift in Lagoon
+  -P, --projectUser string        Project user to use
+  -R, --routerPattern string      Router pattern to use
+  -S, --sshHost string            SSH host address
+  -s, --sshPort string            SSH port number
+  -T, --token string              Openshift token used to access the cluster
 ```
 
 ### Options inherited from parent commands
@@ -31,10 +44,5 @@ Update a resource
 
 ### SEE ALSO
 
-* [lagoon](lagoon.md)	 - Command line integration for Lagoon
-* [lagoon update openshift](lagoon_update_openshift.md)	 - Update an openshift (platform admin user permissions only)
-* [lagoon update project](lagoon_update_project.md)	 - Update a project
-* [lagoon update rocketchat](lagoon_update_rocketchat.md)	 - Update an existing rocketchat notification
-* [lagoon update slack](lagoon_update_slack.md)	 - Update an existing slack notification
-* [lagoon update user](lagoon_update_user.md)	 - Update a user in lagoon
+* [lagoon update](lagoon_update.md)	 - Update a resource
 

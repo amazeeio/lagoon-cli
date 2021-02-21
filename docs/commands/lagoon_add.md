@@ -33,6 +33,7 @@ Add a project, or add notifications and variables to projects or environments
 
 * [lagoon](lagoon.md)	 - Command line integration for Lagoon
 * [lagoon add group](lagoon_add_group.md)	 - Add a group to lagoon
+* [lagoon add openshift](lagoon_add_openshift.md)	 - Add a new openshift (platform admin user permissions only)
 * [lagoon add project](lagoon_add_project.md)	 - Add a new project to lagoon
 * [lagoon add project-group](lagoon_add_project-group.md)	 - Add a project to a group in lagoon
 * [lagoon add project-rocketchat](lagoon_add_project-rocketchat.md)	 - Add a rocketchat notification to a project

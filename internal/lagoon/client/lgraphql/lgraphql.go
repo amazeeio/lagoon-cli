@@ -10,12 +10,15 @@
 // _lgraphql/addNotificationRocketChat.graphql
 // _lgraphql/addNotificationSlack.graphql
 // _lgraphql/addNotificationToProject.graphql
+// _lgraphql/addOpenshift.graphql
 // _lgraphql/addOrUpdateEnvironment.graphql
 // _lgraphql/addProject.graphql
 // _lgraphql/addProjectToBillingGroup.graphql
 // _lgraphql/addSshKey.graphql
 // _lgraphql/addUser.graphql
 // _lgraphql/addUserToGroup.graphql
+// _lgraphql/allOpenshifts.graphql
+// _lgraphql/deleteOpenshift.graphql
 // _lgraphql/deployEnvironmentBranch.graphql
 // _lgraphql/deployEnvironmentLatest.graphql
 // _lgraphql/deployEnvironmentPromote.graphql
@@ -25,6 +28,7 @@
 // _lgraphql/lagoonVersion.graphql
 // _lgraphql/me.graphql
 // _lgraphql/projectByName.graphql
+// _lgraphql/updateOpenshift.graphql
 package lgraphql
 
 import (
@@ -281,6 +285,26 @@ func _lgraphqlAddnotificationtoprojectGraphql() (*asset, error) {
 	return a, nil
 }
 
+var __lgraphqlAddopenshiftGraphql = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x94\xd0\xbf\x6e\x83\x30\x10\x06\xf0\x9d\xa7\xb8\x46\x19\x9a\xa1\x51\x3b\x55\x62\xad\xaa\xfe\x19\x9a\x48\x69\xba\x5b\xe1\x08\x6e\xe1\x4c\xcf\xc7\x84\x78\xf7\xca\x70\x24\x86\x74\x09\x03\xc2\xdf\x99\x93\xbe\x5f\xd5\x88\x11\xeb\xe8\x36\x01\x58\xda\x2c\x85\x37\x92\xf0\x49\xa6\xc2\x14\x76\xc2\x96\x8e\x37\x21\x38\x38\xf2\xae\xc4\x3d\x97\x93\x58\xdc\x0f\xd2\x98\x84\x80\x5d\x23\xc8\x5b\x23\x82\x3c\x19\xd4\xec\xbe\xf1\x20\x7b\x8f\x1c\xc7\xde\x17\xaf\xce\xcb\x2c\xda\x3a\x8e\xa3\xb6\xbd\x03\x9b\x83\xa9\xed\x17\xf2\x0b\xa3\x11\xe4\xcf\xc2\xd0\x86\x9f\x7f\x1b\x53\xc2\x1a\x16\x0f\xeb\xc7\xf5\xfd\x02\xba\x2e\x01\xa8\x1c\x59\x71\xe1\xdf\x27\x47\xb9\x3d\xa6\xf0\xbe\xdb\x7c\xe8\x1e\xa4\x2c\xdc\x5a\x41\x9b\x00\x98\x2c\xdb\xd4\x48\xbe\xb0\xb9\x04\x02\x00\x4b\x75\x23\x69\x3f\xec\x8f\x59\x1a\x5c\xf4\x34\xa8\xf4\x38\x9a\xc4\x2c\x91\x91\x4e\x55\x67\x50\xd2\x6c\x06\x34\x05\xd3\x3b\x13\xab\x58\x4e\xe7\x27\xb4\x91\xef\x9c\x0f\x72\xa3\xa1\xe6\x57\xfa\x85\xe7\xd2\x70\x39\x8f\xa2\xe5\x8a\x1a\x8e\xe1\xbd\x52\x3f\x85\x3b\x79\xcd\x80\x2e\xab\xcf\xab\xc6\xf5\xe2\x4a\x87\xbe\xc3\xb0\xfd\x8c\x7b\x75\xcd\x7f\x1b\x4d\xfa\x74\x49\x97\xfc\x05\x00\x00\xff\xff\x45\x2d\x84\x7b\x24\x03\x00\x00")
+
+func _lgraphqlAddopenshiftGraphqlBytes() ([]byte, error) {
+	return bindataRead(
+		__lgraphqlAddopenshiftGraphql,
+		"_lgraphql/addOpenshift.graphql",
+	)
+}
+
+func _lgraphqlAddopenshiftGraphql() (*asset, error) {
+	bytes, err := _lgraphqlAddopenshiftGraphqlBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "_lgraphql/addOpenshift.graphql", size: 0, mode: os.FileMode(0), modTime: time.Unix(0, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
 var __lgraphqlAddorupdateenvironmentGraphql = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x6c\x90\xcd\x4a\xc5\x30\x10\x85\xf7\x7d\x8a\x11\x5c\xdc\x0b\xf7\x09\xb2\x14\x0b\xba\x51\xf1\xe7\x01\x82\x99\x6a\xa4\x9d\x84\x74\x5a\x28\xe2\xbb\x4b\x9b\x26\x9d\xf4\x76\x51\x28\xe7\x9c\xcc\xcc\xf9\xba\x81\x35\x5b\x47\x70\xaa\x00\x6e\x49\x77\xa8\xe0\x8d\x83\xa5\xaf\x9b\xcb\xac\xf8\xe0\x7e\xf0\x93\x15\x3c\x12\x47\xc5\xa0\x6f\xdd\xf4\x3e\x79\x54\x70\x9f\xff\xa5\x77\xa7\x7b\x7c\xc5\xa6\x1c\x14\xad\x07\xd4\x46\x58\x72\xa0\xe5\x16\x0b\x1d\x69\xb4\xc1\x51\x87\xc4\x71\x5b\x4d\xe3\xb6\xca\x79\xa4\xfe\xdb\x36\xfc\x12\x2f\x7c\x92\xa7\x9f\xe1\xb7\x02\x00\xd0\xc6\x3c\x87\x0f\x6f\x34\x63\xbd\x4d\x3b\x59\xf2\x03\xab\x35\x03\x10\x5b\x2f\xe5\x2f\xab\x94\x6b\x27\x00\xc9\x90\xed\x05\x8a\xd2\xce\x00\x4a\x20\x65\x28\xa3\x28\xd1\xec\x16\x45\x2a\x92\x51\x0a\x5c\xe1\xd9\x03\x4b\xc1\x63\x52\x87\x00\x97\x17\x7f\xe7\x4c\xc6\x1a\x81\x28\x9a\xd5\xfc\xfd\x07\x00\x00\xff\xff\x2f\xb0\x49\x31\x36\x02\x00\x00")
 
 func _lgraphqlAddorupdateenvironmentGraphqlBytes() ([]byte, error) {
@@ -397,6 +421,46 @@ func _lgraphqlAddusertogroupGraphql() (*asset, error) {
 	}
 
 	info := bindataFileInfo{name: "_lgraphql/addUserToGroup.graphql", size: 0, mode: os.FileMode(0), modTime: time.Unix(0, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
+var __lgraphqlAllopenshiftsGraphql = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x6c\x8c\xb1\xce\x82\x40\x10\x84\x7b\x9e\x62\x43\xff\x93\xdf\xca\x07\x30\x46\x3b\x28\xc4\xfe\x02\x0b\x9c\x1e\xbb\xb0\xb7\x14\x86\xdc\xbb\x9b\xec\x45\x2b\xab\xf9\x66\x32\x33\xeb\x86\xf2\x02\x17\x42\xbd\x20\xc5\xc9\x0f\x1a\x61\x2f\xe0\x47\x02\xe0\x7b\x13\x72\x33\x1a\x74\x4c\x91\x03\xb6\x12\xcc\x0a\x6f\x8a\xd2\x38\x55\x14\xb2\x64\x11\x7e\x60\xa7\x6d\x44\x31\x1f\xe3\x74\xe5\xa8\x1f\x6e\x58\x32\x77\x82\x4e\x31\xbf\x2b\x3f\x31\xaf\xf7\xfd\x0f\xfc\x00\x6e\xf1\x77\x94\x8b\x55\xe4\x36\x39\xaa\xe5\xbc\x6e\x2e\x40\x05\xe5\xa1\x3a\x56\xff\x25\xa4\x64\x83\x99\xc9\x2b\x8b\xa7\xf1\xc4\x34\xf8\xf1\xfb\x82\xd4\xe7\x4e\x2a\x52\xf1\x0e\x00\x00\xff\xff\x4e\x76\xfb\xfb\xf2\x00\x00\x00")
+
+func _lgraphqlAllopenshiftsGraphqlBytes() ([]byte, error) {
+	return bindataRead(
+		__lgraphqlAllopenshiftsGraphql,
+		"_lgraphql/allOpenshifts.graphql",
+	)
+}
+
+func _lgraphqlAllopenshiftsGraphql() (*asset, error) {
+	bytes, err := _lgraphqlAllopenshiftsGraphqlBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "_lgraphql/allOpenshifts.graphql", size: 0, mode: os.FileMode(0), modTime: time.Unix(0, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
+var __lgraphqlDeleteopenshiftGraphql = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\xca\x2d\x2d\x49\x2c\xc9\xcc\xcf\xd3\x50\xc9\x4b\xcc\x4d\xb5\x52\x08\x2e\x29\xca\xcc\x4b\x57\xd4\x54\xa8\xe6\x52\x50\x48\x49\xcd\x49\x2d\x49\xf5\x2f\x48\xcd\x2b\xce\xc8\x4c\x2b\xd1\xc8\xcc\x2b\x28\x2d\xb1\x52\xa8\x56\x80\xa8\x05\x6b\x51\xa8\xd5\xe4\xaa\xe5\x02\x04\x00\x00\xff\xff\x09\xc1\x24\xa8\x47\x00\x00\x00")
+
+func _lgraphqlDeleteopenshiftGraphqlBytes() ([]byte, error) {
+	return bindataRead(
+		__lgraphqlDeleteopenshiftGraphql,
+		"_lgraphql/deleteOpenshift.graphql",
+	)
+}
+
+func _lgraphqlDeleteopenshiftGraphql() (*asset, error) {
+	bytes, err := _lgraphqlDeleteopenshiftGraphqlBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "_lgraphql/deleteOpenshift.graphql", size: 0, mode: os.FileMode(0), modTime: time.Unix(0, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -581,6 +645,26 @@ func _lgraphqlProjectbynameGraphql() (*asset, error) {
 	return a, nil
 }
 
+var __lgraphqlUpdateopenshiftGraphql = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x54\x8c\xbd\x4e\xec\x40\x0c\x85\xfb\x3c\x85\x77\x95\x62\xaf\xb4\x37\x82\x0a\x29\x2d\x42\xb0\xd5\xa6\x20\xf4\xa3\xc4\xd9\x18\x12\x7b\xf0\x78\xaa\x68\xde\x1d\x65\x06\x90\xa8\x7c\x7c\x7e\xbe\x35\x9a\x33\x12\x3e\xd5\x34\xb6\x70\x61\x3b\x9c\xa1\xf6\xce\x86\xb9\x85\xde\x8f\xce\xf0\xea\x91\xc3\x4c\x93\x75\xbb\x7b\x61\x1f\xed\xf0\x0f\xb6\x0a\x20\xfe\xcd\x4f\xb4\x67\x2d\x6c\xb0\xa3\x6a\x1a\xcf\xf0\x0d\x2a\x40\x48\x65\x06\x40\x63\x3e\xec\x56\xcc\x62\x10\x0e\xb2\x60\xaf\x4b\x7e\x55\xa2\xa1\x76\xce\x0c\x95\xb3\xe3\x55\xde\x71\xb0\x3e\xa0\xe6\x3f\x84\xf9\x45\x82\xfd\xe8\x4e\xb4\xe8\x41\xd1\x19\x16\xba\xc9\x07\x96\xf5\xb6\xfd\x07\x9a\xc0\x79\x7a\x43\x7d\xce\x15\x7d\x9d\x1d\x5f\xf5\xe9\x33\xba\x05\x1a\x38\xde\x37\x0f\xcd\xdd\x11\x52\xca\x83\x55\x98\x4c\x94\xf8\xf6\x28\x3c\xd1\xed\x97\x82\x3c\x96\x4e\xaa\x52\xf5\x15\x00\x00\xff\xff\x4a\x39\x3e\x49\x3b\x01\x00\x00")
+
+func _lgraphqlUpdateopenshiftGraphqlBytes() ([]byte, error) {
+	return bindataRead(
+		__lgraphqlUpdateopenshiftGraphql,
+		"_lgraphql/updateOpenshift.graphql",
+	)
+}
+
+func _lgraphqlUpdateopenshiftGraphql() (*asset, error) {
+	bytes, err := _lgraphqlUpdateopenshiftGraphqlBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "_lgraphql/updateOpenshift.graphql", size: 0, mode: os.FileMode(0), modTime: time.Unix(0, 0)}
+	a := &asset{bytes: bytes, info: info}
+	return a, nil
+}
+
 // Asset loads and returns the asset for the given name.
 // It returns an error if the asset could not be found or
 // could not be loaded.
@@ -642,12 +726,15 @@ var _bindata = map[string]func() (*asset, error){
 	"_lgraphql/addNotificationRocketChat.graphql":     _lgraphqlAddnotificationrocketchatGraphql,
 	"_lgraphql/addNotificationSlack.graphql":          _lgraphqlAddnotificationslackGraphql,
 	"_lgraphql/addNotificationToProject.graphql":      _lgraphqlAddnotificationtoprojectGraphql,
+	"_lgraphql/addOpenshift.graphql":                  _lgraphqlAddopenshiftGraphql,
 	"_lgraphql/addOrUpdateEnvironment.graphql":        _lgraphqlAddorupdateenvironmentGraphql,
 	"_lgraphql/addProject.graphql":                    _lgraphqlAddprojectGraphql,
 	"_lgraphql/addProjectToBillingGroup.graphql":      _lgraphqlAddprojecttobillinggroupGraphql,
 	"_lgraphql/addSshKey.graphql":                     _lgraphqlAddsshkeyGraphql,
 	"_lgraphql/addUser.graphql":                       _lgraphqlAdduserGraphql,
 	"_lgraphql/addUserToGroup.graphql":                _lgraphqlAddusertogroupGraphql,
+	"_lgraphql/allOpenshifts.graphql":                 _lgraphqlAllopenshiftsGraphql,
+	"_lgraphql/deleteOpenshift.graphql":               _lgraphqlDeleteopenshiftGraphql,
 	"_lgraphql/deployEnvironmentBranch.graphql":       _lgraphqlDeployenvironmentbranchGraphql,
 	"_lgraphql/deployEnvironmentLatest.graphql":       _lgraphqlDeployenvironmentlatestGraphql,
 	"_lgraphql/deployEnvironmentPromote.graphql":      _lgraphqlDeployenvironmentpromoteGraphql,
@@ -657,6 +744,7 @@ var _bindata = map[string]func() (*asset, error){
 	"_lgraphql/lagoonVersion.graphql":                 _lgraphqlLagoonversionGraphql,
 	"_lgraphql/me.graphql":                            _lgraphqlMeGraphql,
 	"_lgraphql/projectByName.graphql":                 _lgraphqlProjectbynameGraphql,
+	"_lgraphql/updateOpenshift.graphql":               _lgraphqlUpdateopenshiftGraphql,
 }
 
 // AssetDir returns the file names below a certain
@@ -710,12 +798,15 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"addNotificationRocketChat.graphql":     &bintree{_lgraphqlAddnotificationrocketchatGraphql, map[string]*bintree{}},
 		"addNotificationSlack.graphql":          &bintree{_lgraphqlAddnotificationslackGraphql, map[string]*bintree{}},
 		"addNotificationToProject.graphql":      &bintree{_lgraphqlAddnotificationtoprojectGraphql, map[string]*bintree{}},
+		"addOpenshift.graphql":                  &bintree{_lgraphqlAddopenshiftGraphql, map[string]*bintree{}},
 		"addOrUpdateEnvironment.graphql":        &bintree{_lgraphqlAddorupdateenvironmentGraphql, map[string]*bintree{}},
 		"addProject.graphql":                    &bintree{_lgraphqlAddprojectGraphql, map[string]*bintree{}},
 		"addProjectToBillingGroup.graphql":      &bintree{_lgraphqlAddprojecttobillinggroupGraphql, map[string]*bintree{}},
 		"addSshKey.graphql":                     &bintree{_lgraphqlAddsshkeyGraphql, map[string]*bintree{}},
 		"addUser.graphql":                       &bintree{_lgraphqlAdduserGraphql, map[string]*bintree{}},
 		"addUserToGroup.graphql":                &bintree{_lgraphqlAddusertogroupGraphql, map[string]*bintree{}},
+		"allOpenshifts.graphql":                 &bintree{_lgraphqlAllopenshiftsGraphql, map[string]*bintree{}},
+		"deleteOpenshift.graphql":               &bintree{_lgraphqlDeleteopenshiftGraphql, map[string]*bintree{}},
 		"deployEnvironmentBranch.graphql":       &bintree{_lgraphqlDeployenvironmentbranchGraphql, map[string]*bintree{}},
 		"deployEnvironmentLatest.graphql":       &bintree{_lgraphqlDeployenvironmentlatestGraphql, map[string]*bintree{}},
 		"deployEnvironmentPromote.graphql":      &bintree{_lgraphqlDeployenvironmentpromoteGraphql, map[string]*bintree{}},
@@ -725,6 +816,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"lagoonVersion.graphql":                 &bintree{_lgraphqlLagoonversionGraphql, map[string]*bintree{}},
 		"me.graphql":                            &bintree{_lgraphqlMeGraphql, map[string]*bintree{}},
 		"projectByName.graphql":                 &bintree{_lgraphqlProjectbynameGraphql, map[string]*bintree{}},
+		"updateOpenshift.graphql":               &bintree{_lgraphqlUpdateopenshiftGraphql, map[string]*bintree{}},
 	}},
 }}
 

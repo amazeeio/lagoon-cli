@@ -1,0 +1,16 @@
+query allOpenshifts {
+  allOpenshifts {
+    id
+    name
+    consoleUrl
+    routerPattern
+    projectUser
+    sshHost
+    sshPort
+    created
+    token
+    {{- if apiVerGreaterThanOrEqual . "1.7.0" }}
+    monitoringConfig
+    {{- end }}
+  }
+}

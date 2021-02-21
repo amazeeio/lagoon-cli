@@ -272,3 +272,41 @@ func (c *Client) DeployEnvironmentBranch(ctx context.Context,
 	}
 	return c.client.Run(ctx, req, &out)
 }
+
+// AddOpenshift adds an Openshift.
+func (c *Client) AddOpenshift(
+	ctx context.Context, in *schema.AddOpenshiftInput, out *schema.Openshift) error {
+	req, err := c.newVersionedRequest("_lgraphql/addOpenshift.graphql", in)
+	if err != nil {
+		return err
+	}
+	return c.client.Run(ctx, req, &struct {
+		Response *schema.Openshift `json:"addOpenshift"`
+	}{
+		Response: out,
+	})
+}
+
+// UpdateOpenshift updates an Openshift.
+func (c *Client) UpdateOpenshift(
+	ctx context.Context, in *schema.UpdateOpenshiftInput, out *schema.Openshift) error {
+	req, err := c.newVersionedRequest("_lgraphql/updateOpenshift.graphql", in)
+	if err != nil {
+		return err
+	}
+	return c.client.Run(ctx, req, &struct {
+		Response *schema.Openshift `json:"updateOpenshift"`
+	}{
+		Response: out,
+	})
+}
+
+// DeleteOpenshift deletes an Openshift.
+func (c *Client) DeleteOpenshift(
+	ctx context.Context, in *schema.DeleteOpenshiftInput, out *schema.DeleteOpenshift) error {
+	req, err := c.newRequest("_lgraphql/deleteOpenshift.graphql", in)
+	if err != nil {
+		return err
+	}
+	return c.client.Run(ctx, req, &out)
+}

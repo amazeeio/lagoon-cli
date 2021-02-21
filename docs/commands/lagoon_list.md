@@ -37,6 +37,7 @@ List projects, deployments, variables or notifications
 * [lagoon list environments](lagoon_list_environments.md)	 - List environments for a project (alias: e)
 * [lagoon list group-projects](lagoon_list_group-projects.md)	 - List projects in a group (alias: gp)
 * [lagoon list groups](lagoon_list_groups.md)	 - List groups you have access to (alias: g)
+* [lagoon list openshifts](lagoon_list_openshifts.md)	 - List all Openshifts Lagoon knows about (platform admin user permissions only)
 * [lagoon list projects](lagoon_list_projects.md)	 - List all projects you have access to (alias: p)
 * [lagoon list rocketchat](lagoon_list_rocketchat.md)	 - List Rocketchat details about a project (alias: r)
 * [lagoon list slack](lagoon_list_slack.md)	 - List Slack details about a project (alias: s)
