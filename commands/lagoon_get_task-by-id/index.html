@@ -14,7 +14,7 @@
     
     
       
-        <title>Lagoon get - Lagoon CLI</title>
+        <title>Lagoon get task by id - Lagoon CLI</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lagoon_get" class="md-skip">
+        <a href="#lagoon_get_task-by-id" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Lagoon get
+              Lagoon get task by id
             
           </span>
         </div>
@@ -217,11 +217,11 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lagoon_get" class="md-nav__link">
-    lagoon get
+  <a href="#lagoon_get_task-by-id" class="md-nav__link">
+    lagoon get task-by-id
   </a>
   
-    <nav class="md-nav" aria-label="lagoon get">
+    <nav class="md-nav" aria-label="lagoon get task-by-id">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -270,14 +270,19 @@
               
                 
                 
-                  <h1>Lagoon get</h1>
+                  <h1>Lagoon get task by id</h1>
                 
-                <h3 id="lagoon_get">lagoon get<a class="headerlink" href="#lagoon_get" title="Permanent link">#</a></h3>
-<p>Get info on a resource</p>
+                <h3 id="lagoon_get_task-by-id">lagoon get task-by-id<a class="headerlink" href="#lagoon_get_task-by-id" title="Permanent link">#</a></h3>
+<p>Get information about a task by its ID</p>
 <h4 id="synopsis">Synopsis<a class="headerlink" href="#synopsis" title="Permanent link">#</a></h4>
-<p>Get info on a resource</p>
+<p>Get information about a task by its ID</p>
+<div class="codehilite"><pre><span></span><code><span class="n">lagoon</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n">task</span><span class="o">-</span><span class="k">by</span><span class="o">-</span><span class="n">id</span><span class="w"> </span><span class="o">[</span><span class="n">flags</span><span class="o">]</span><span class="w"></span>
+</code></pre></div>
+
 <h4 id="options">Options<a class="headerlink" href="#options" title="Permanent link">#</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="err">  -h, --help   help for get</span>
+<div class="codehilite"><pre><span></span><code><span class="err">  -h, --help     help for task-by-id</span>
+<span class="err">  -I, --id int   ID of the task</span>
+<span class="err">  -L, --logs     Show the task logs if available</span>
 </code></pre></div>
 
 <h4 id="options_inherited_from_parent_commands">Options inherited from parent commands<a class="headerlink" href="#options_inherited_from_parent_commands" title="Permanent link">#</a></h4>
@@ -297,14 +302,7 @@
 
 <h4 id="see_also">SEE ALSO<a class="headerlink" href="#see_also" title="Permanent link">#</a></h4>
 <ul>
-<li><a href="../lagoon/">lagoon</a>    - Command line integration for Lagoon</li>
-<li><a href="../lagoon_get_all-user-sshkeys/">lagoon get all-user-sshkeys</a>  - Get all user SSH keys</li>
-<li><a href="../lagoon_get_deployment/">lagoon get deployment</a>  - Get a build log by remote id</li>
-<li><a href="../lagoon_get_environment/">lagoon get environment</a>    - Get details about an environment</li>
-<li><a href="../lagoon_get_project/">lagoon get project</a>    - Get details about a project</li>
-<li><a href="../lagoon_get_project-key/">lagoon get project-key</a>    - Get a projects public key</li>
-<li><a href="../lagoon_get_task-by-id/">lagoon get task-by-id</a>  - Get information about a task by its ID</li>
-<li><a href="../lagoon_get_user-sshkeys/">lagoon get user-sshkeys</a>  - Get a users SSH keys</li>
+<li><a href="../lagoon_get/">lagoon get</a>    - Get info on a resource</li>
 </ul>
                 
               
