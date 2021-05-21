@@ -1,0 +1,10 @@
+query environmentFacts ($name: String!, $projectID: Int!) {
+environmentByName(name: $name, project: $projectID ) {
+		name
+		facts {
+		    id
+			name
+			value
+		  }
+		}
+	  }

@@ -27,6 +27,7 @@ type Environment struct {
 	Updated string `json:"updated,omitempty"`
 	Created string `json:"created,omitempty"`
 	Deleted string `json:"deleted,omitempty"`
+	Facts   []Fact `json:"facts,omitempty"`
 }
 
 // EnvironmentConfig contains Environment configuration.

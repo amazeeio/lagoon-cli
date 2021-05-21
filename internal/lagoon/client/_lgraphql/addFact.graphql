@@ -1,0 +1,14 @@
+mutation (
+ $environment: Int!,
+ $name: String!,
+ $value: String!){
+addFact(input: {
+ environment: $environment
+ name: $name
+ value: $value
+ }) {
+        id
+	    name
+	    value
+    }
+}

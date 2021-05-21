@@ -2,6 +2,7 @@ package client
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/amazeeio/lagoon-cli/internal/schema"
 )
@@ -42,6 +43,34 @@ func (c *Client) Me(
 	}{
 		Response: user,
 	})
+}
+
+func (c *Client) FactsforEnvironment(ctx context.Context, projectId uint, environmentName string, facts *[]schema.Fact) error {
+	req, err := c.newRequest("_lgraphql/getFacts.graphql", map[string]interface{}{
+		"name":      environmentName,
+		"projectID": projectId,
+	})
+
+	if err != nil {
+		fmt.Println(err)
+		return nil
+	}
+
+	var environment schema.Environment
+
+	ret := c.client.Run(ctx, req, &struct {
+		Response *schema.Environment `json:"environmentByName"`
+	}{
+		Response: &environment,
+	})
+
+	if ret != nil {
+		fmt.Println("ERROR")
+	}
+
+	*facts = environment.Facts
+	return ret
+
 }
 
 // EnvironmentByName queries the Lagoon API for an environment by its name and

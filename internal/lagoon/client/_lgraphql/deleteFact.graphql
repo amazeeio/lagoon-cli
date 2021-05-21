@@ -1,0 +1,7 @@
+mutation (
+ $environment: Int!,
+ $name: String!){
+deleteFact(input: {
+ environment: $environment
+ name: $name})
+}
